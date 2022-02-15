@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="TopDownRPG"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://scenes/Global.gd"
+
 [input]
 
 cam_out={
@@ -28,6 +32,11 @@ cam_out={
 cam_in={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":45,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 

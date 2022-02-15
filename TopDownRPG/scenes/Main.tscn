@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://scenes/CustomTeleporter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Teleporter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprites/Straight Rail.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Arrow.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D"]
 
@@ -82,13 +84,10 @@ position = Vector2( 576, 128 )
 position = Vector2( 576, 192 )
 
 [node name="offwhite" type="Sprite" parent="."]
-position = Vector2( 416, 176 )
+position = Vector2( 336, 176 )
 scale = Vector2( 500, 500 )
 z_index = -1
 texture = ExtResource( 3 )
-
-[node name="Item" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, 64 )
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 256, 0 )
@@ -270,3 +269,14 @@ position = Vector2( 576, 128 )
 position = Vector2( 0, 192 )
 Pad1Y = 192
 Pad2X = 576
+
+[node name="Item" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 64 )
+scale = Vector2( 2, 2 )
+
+[node name="Arrow" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0, -48 )
+rotation = 1.5708
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 512, 192 )

@@ -2,12 +2,20 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 export (int) var speed
+export (bool) var player_one
 var collided = false
+
+var direction_facing = "South"
+
+var arrow = preload("res://scenes/Arrow.tscn")
  
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.player1 = self
 	$EmoteBubble.hide()
-	pass 
+
+func _exit_tree():
+	Global.player1 = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,13 +26,20 @@ func _process(delta):
 func get_input(delta):
 	velocity = Vector2()
 	if Input.is_action_pressed("ui_left"):
+		direction_facing = "West"
 		velocity.x -= speed
 	if Input.is_action_pressed("ui_right"):
+		direction_facing = "East"
 		velocity.x += speed
 	if Input.is_action_pressed("ui_up"):
+		direction_facing = "North"
 		velocity.y -= speed
 	if Input.is_action_pressed("ui_down"):
+		direction_facing = "South"
 		velocity.y += speed
+	if Input.is_action_just_pressed("shoot"):
+		add_child(arrow.instance())
+		
 	if Input.is_action_pressed("cam_out"):
 		if $Camera2D.get_zoom().x > 0.5:
 			$Camera2D.set_zoom($Camera2D.get_zoom() - Vector2(0.5,0.5) * delta)
